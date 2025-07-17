@@ -42,6 +42,9 @@ body {
 
 .header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .header__logo-link {
@@ -53,6 +56,33 @@ body {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin-right: 76px;
+}
+
+.header__menu-link.current {
+  position: relative;
+  color: #404bbf;
+}
+
+.header__menu-link.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  background-color: #404bbf;
+  border-radius: 2px;
+}
+
+.curent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  background-color: #404bbf;
+  border-radius: 2px;
 }
 
 .header__info {
@@ -88,15 +118,21 @@ body {
   line-height: 1.5;
   letter-spacing: 0.32px;
   color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* ___main___ */
 
 .hero {
-  background-image: linear-gradient(rgba(46, 47, 66, 0.7)),
-    url("../images/background_hero.jpg");
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/background_hero.jpg);
   background-repeat: no-repeat;
   background-position: center center;
-  block-size: cover;
+  background-size: cover;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .hero__title {
@@ -126,6 +162,7 @@ body {
   margin: 0 auto;
   margin-top: 48px;
   border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero__button:hover,
@@ -320,6 +357,12 @@ body {
 .about-us__item {
   border-radius: 0 0 4px 4px;
   width: calc((100% - 72px) / 4);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.about-us__social-link:focus {
+  background-color: #404bbf;
 }
 
 .about-us__item:last-child {
@@ -362,6 +405,12 @@ body {
 
 .portfolio__item {
   width: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio__item:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .footer {
@@ -515,13 +564,17 @@ body {
   gap: 16px;
 }
 
-.footer__inner {
-  margin-left: 120px;
+.footer__text {
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+  margin-bottom: 16px;
 }
 
 .footer__container {
   display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  gap: 120px;
+}
+
+.footer__info {
+  margin-right: 120px;
 }
